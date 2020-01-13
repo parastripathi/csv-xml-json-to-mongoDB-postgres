@@ -1,10 +1,7 @@
 package com.training.fileskafkadb.utilities;
 
-//import au.com.bytecode.opencsv.CSVReader;
-//import au.com.bytecode.opencsv.CSVWriter;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
-import com.opencsv.exceptions.CsvValidationException;
+import au.com.bytecode.opencsv.CSVReader;
+import au.com.bytecode.opencsv.CSVWriter;
 import com.training.fileskafkadb.dta.Employee;
 
 import java.io.*;
@@ -39,7 +36,7 @@ public class CSVFileHandler implements MyFileHandler{
         writer.close();
     }
     @Override
-    public Employee readEmployee() throws IOException, ParseException, CsvValidationException {
+    public Employee readEmployee() throws IOException, ParseException {
         Object[] nextRecord;
         Employee newEmployee = new Employee();
         if ((nextRecord = csvReader.readNext()) == null) return null;
