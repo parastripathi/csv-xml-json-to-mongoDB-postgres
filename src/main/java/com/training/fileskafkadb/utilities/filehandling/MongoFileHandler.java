@@ -1,10 +1,12 @@
-package com.training.fileskafkadb.utilities;
+package com.training.fileskafkadb.utilities.filehandling;
 
 import com.mongodb.*;
-import com.training.fileskafkadb.dta.Employee;
+import com.training.fileskafkadb.dto.EmployeeDTO;
+import org.springframework.stereotype.Service;
 
 import java.net.UnknownHostException;
 
+@Service
 public class MongoFileHandler {
 
     private MongoClient mongo;
@@ -12,10 +14,10 @@ public class MongoFileHandler {
 
     MongoFileHandler() throws UnknownHostException {
         mongo = new MongoClient("localhost", 27017);
-        db = mongo.getDB("trainingdb");
+        db = mongo.getDB("jainildb");
     }
 
-    private static DBObject createDBObject(Employee employee) {
+    private static DBObject createDBObject(EmployeeDTO employee) {
         BasicDBObjectBuilder docBuilder = BasicDBObjectBuilder.start();
 
         docBuilder.append("first_name", employee.getFirstName());
@@ -27,11 +29,12 @@ public class MongoFileHandler {
     }
 
 
-    public void writeEmployee(Employee employee) throws UnknownHostException {
+    public void writeEmployee(EmployeeDTO employee) throws UnknownHostException {
 
-        DBObject doc = createDBObject(employee);
+        EmployeeDTO employee1 = new EmployeeDTO();
+        employee1.setFirstName("j");
 
-
+        DBObject doc = createDBObject(employee1);
 
         DBCollection col = db.getCollection("employee");
 

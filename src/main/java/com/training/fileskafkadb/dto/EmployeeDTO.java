@@ -1,8 +1,10 @@
-package com.training.fileskafkadb.dta;
+package com.training.fileskafkadb.dto;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.Date ;
 
-public class Employee {
+public class EmployeeDTO {
     String firstName ;
     String lastName ;
     String middleName ;
