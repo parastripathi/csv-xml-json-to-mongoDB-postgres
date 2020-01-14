@@ -1,7 +1,7 @@
 package com.training.fileskafkadb.utilities.filehandling;
 
 import com.training.fileskafkadb.entity.Employee;
-import com.training.fileskafkadb.utilities.kafka.KafkaService;
+import com.training.fileskafkadb.utilities.kafkaconfig.KafkaService;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -26,7 +26,6 @@ public class CSVReadThread extends Thread {
                 assert csvHandler != null;
                 Employee testEmployee = csvHandler.readEmployee();
                 kf.send(testEmployee);
-                //MyCollection.addEmployee(testEmployee);
                 linesRead++;
             }
 

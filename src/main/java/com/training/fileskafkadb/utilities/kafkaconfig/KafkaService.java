@@ -1,4 +1,4 @@
-package com.training.fileskafkadb.utilities.kafka;
+package com.training.fileskafkadb.utilities.kafkaconfig;
 
 import com.training.fileskafkadb.entity.Employee;
 import org.apache.kafka.clients.consumer.Consumer;

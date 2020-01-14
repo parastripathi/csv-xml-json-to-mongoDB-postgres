@@ -1,4 +1,4 @@
-package com.training.fileskafkadb.utilities.kafka;
+package com.training.fileskafkadb.utilities.kafkaconfig;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.serialization.Deserializer;

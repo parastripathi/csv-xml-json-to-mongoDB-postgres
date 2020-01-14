@@ -18,21 +18,6 @@ public class CSVFileHandler implements MyFileHandler {
     public CSVFileHandler() throws IOException {
     }
 
-    /*@Override
-    public void writeEmployee(Employee tempEmployee) throws IOException {
-        if(tempEmployee == null) return;
-        FileWriter outputfile = new FileWriter(file,true);
-        CSVWriter writer = new CSVWriter(outputfile);
-        String[] writeString = new String[4];
-        writeString[0] = tempEmployee.getFirstName();
-        writeString[1] = tempEmployee.getLastName();
-        DateFormat dateFormat = new SimpleDateFormat("mm-dd-yyyy");
-        String strDate = dateFormat.format(tempEmployee.getDateOfBirth());
-        writeString[2] = strDate;
-        writeString[3] = Double.toString(tempEmployee.getExperience());
-        writer.writeNext(writeString);
-        writer.close();
-    }*/
     @Override
     public Employee readEmployee() throws IOException, ParseException {
         Object[] nextRecord;
