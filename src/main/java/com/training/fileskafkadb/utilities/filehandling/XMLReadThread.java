@@ -1,7 +1,8 @@
 package com.training.fileskafkadb.utilities.filehandling;
 
 import com.training.fileskafkadb.entity.Employee;
-import com.training.fileskafkadb.utilities.kafkaconfig.KafkaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -9,7 +10,6 @@ import java.text.ParseException;
 @Service
 public class XMLReadThread extends Thread {
 
-    KafkaService kf=new KafkaService();
     @Override
     public void run() {
 
@@ -27,7 +27,7 @@ public class XMLReadThread extends Thread {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            kf.send(testEmployee);
+            MyList.add(testEmployee);
             linesRead++;
         }
 

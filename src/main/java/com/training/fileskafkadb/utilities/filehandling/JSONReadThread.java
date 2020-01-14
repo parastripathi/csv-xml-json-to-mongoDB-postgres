@@ -2,13 +2,13 @@ package com.training.fileskafkadb.utilities.filehandling;
 
 
 import com.training.fileskafkadb.entity.Employee;
-import com.training.fileskafkadb.utilities.kafkaconfig.KafkaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 public class JSONReadThread extends Thread {
 
-    KafkaService kf=new KafkaService();
     @Override
     public void run() {
 
@@ -20,7 +20,7 @@ public class JSONReadThread extends Thread {
             while(linesRead < 100) {
                 assert jsonHandler != null;
                 Employee testEmployee = jsonHandler.readEmployee();
-                kf.send(testEmployee);
+                MyList.add(testEmployee);
                 linesRead++;
             }
 
