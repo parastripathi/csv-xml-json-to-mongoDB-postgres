@@ -1,4 +1,4 @@
-package com.training.fileskafkadb.utilities.kafka;
+package com.training.fileskafkadb.utilities.kafkaconfig;
 
 import com.training.fileskafkadb.entity.Employee;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -19,7 +19,7 @@ import java.util.Map;
 @SpringBootApplication(exclude = KafkaAutoConfiguration.class)
 @EnableKafka
 @Configuration
-public class KafkaListConfig {
+public class KafkaListenerConfig {
     @Bean
     public ConsumerFactory<String,Employee> employeeConsumerFactory(){
         Map<String,Object> config = new HashMap<>();

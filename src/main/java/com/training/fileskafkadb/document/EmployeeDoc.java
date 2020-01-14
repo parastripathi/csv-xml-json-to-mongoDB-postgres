@@ -1,12 +1,12 @@
-package com.training.fileskafkadb.entity;
+package com.training.fileskafkadb.document;
 
-import javax.persistence.Entity;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.persistence.Id;
 import java.util.Date;
 
-@Entity
-public class Employee {
-
+@Document(collection = "employee")
+public class EmployeeDoc {
     @Id
     String firstName ;
     String lastName ;

@@ -2,7 +2,7 @@ package com.training.fileskafkadb.utilities.filehandling;
 
 
 import com.training.fileskafkadb.entity.Employee;
-import com.training.fileskafkadb.utilities.kafka.KafkaService;
+import com.training.fileskafkadb.utilities.kafkaconfig.KafkaService;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,7 +21,6 @@ public class JSONReadThread extends Thread {
                 assert jsonHandler != null;
                 Employee testEmployee = jsonHandler.readEmployee();
                 kf.send(testEmployee);
-                //MyCollection.addEmployee(testEmployee);
                 linesRead++;
             }
 

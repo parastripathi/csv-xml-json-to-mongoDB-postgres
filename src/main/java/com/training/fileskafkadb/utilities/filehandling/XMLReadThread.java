@@ -1,7 +1,7 @@
 package com.training.fileskafkadb.utilities.filehandling;
 
 import com.training.fileskafkadb.entity.Employee;
-import com.training.fileskafkadb.utilities.kafka.KafkaService;
+import com.training.fileskafkadb.utilities.kafkaconfig.KafkaService;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -28,7 +28,6 @@ public class XMLReadThread extends Thread {
                 e.printStackTrace();
             }
             kf.send(testEmployee);
-            //MyCollection.addEmployee(testEmployee);
             linesRead++;
         }
 

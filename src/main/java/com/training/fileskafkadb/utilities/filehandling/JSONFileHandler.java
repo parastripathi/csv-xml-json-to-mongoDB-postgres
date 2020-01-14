@@ -77,31 +77,6 @@ public class JSONFileHandler implements MyFileHandler {
         return null;
     }
 
-   /* @Override
-    public void writeEmployee(Employee employee) {
-        JSONObject jsonObject = new JSONObject();
-
-        String firstName = employee.getFirstName();
-        String lastName = employee.getLastName();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd-yy");
-        String date = simpleDateFormat.format(employee.getDateOfBirth());
-        Double experience = employee.getExperience();
-
-        jsonObject.put("firstName",firstName);
-        jsonObject.put("lastName",lastName);
-        jsonObject.put("dateOfBirth",date);
-        jsonObject.put("experience",experience);
-
-
-        try{
-            fileWriter.write(jsonObject.toJSONString()+"\n");
-            fileWriter.flush();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
-
     @Override
     protected void finalize() throws Throwable {
         fileWriter.close();
