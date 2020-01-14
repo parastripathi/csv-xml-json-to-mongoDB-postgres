@@ -1,6 +1,7 @@
-package com.training.fileskafkadb.utilities;
+package com.training.fileskafkadb.utilities.filehandling;
 
-import com.training.fileskafkadb.dta.Employee;
+import com.training.fileskafkadb.entity.Employee;
+import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.xml.sax.*;
 import javax.xml.parsers.DocumentBuilder;
@@ -8,18 +9,14 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
-import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import java.util.*;
+
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
+@Service
 public class XMLFileHandler implements MyFileHandler
 {
     private static int index = 0;
@@ -42,7 +39,7 @@ public class XMLFileHandler implements MyFileHandler
     }
     public Employee readEmployee() throws ParseException {
         Employee employe = new Employee();
-        File objFile = new File("/Users/parastripathi/Downloads/employee.xml");
+        File objFile = new File("/Users/jainilpatel/Desktop/Java Code Snippets/employee.xml");
         DocumentBuilderFactory objFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder objBuilder = null;
         Document objDocument = null;
@@ -78,7 +75,7 @@ public class XMLFileHandler implements MyFileHandler
         // }
         return employe;
     }
-    public void writeEmployee(Employee obj) {
+    /*public void writeEmployee(Employee obj) {
         try {
             String fName = obj.getFirstName();
             String lName = obj.getLastName();
@@ -87,28 +84,28 @@ public class XMLFileHandler implements MyFileHandler
             String str = formatter.format(dateOne);
             double exp = obj.getExperience();
             String strexp = Double.toString(exp);
-            Element employee = document.createElement("employee");
+            Element employee = entity.createElement("employee");
             root.appendChild(employee);
-            Element firstName = document.createElement("firstName");
-            firstName.appendChild(document.createTextNode(fName));
+            Element firstName = entity.createElement("firstName");
+            firstName.appendChild(entity.createTextNode(fName));
             employee.appendChild(firstName);
-            Element lastname = document.createElement("lastName");
-            lastname.appendChild(document.createTextNode(lName));
+            Element lastname = entity.createElement("lastName");
+            lastname.appendChild(entity.createTextNode(lName));
             employee.appendChild(lastname);
-            Element dateOfBirth = document.createElement("dateOfBirth");
-            dateOfBirth.appendChild(document.createTextNode(str));
+            Element dateOfBirth = entity.createElement("dateOfBirth");
+            dateOfBirth.appendChild(entity.createTextNode(str));
             employee.appendChild(dateOfBirth);
-            Element experience = document.createElement("experience");
-            experience.appendChild(document.createTextNode(strexp + "\n"));
+            Element experience = entity.createElement("experience");
+            experience.appendChild(entity.createTextNode(strexp + "\n"));
             employee.appendChild(experience);
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
-            DOMSource domSource = new DOMSource(document);
-            StreamResult streamResult = new StreamResult(new File("/Users/parastripathi/Downloads/employee_new.xml"));
+            DOMSource domSource = new DOMSource(entity);
+            StreamResult streamResult = new StreamResult(new File("/Users/jainilpatel/Desktop/Java Code Snippets/employeeNew.xml"));
             transformer.transform(domSource, streamResult);
 //            System.out.println("Done");
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

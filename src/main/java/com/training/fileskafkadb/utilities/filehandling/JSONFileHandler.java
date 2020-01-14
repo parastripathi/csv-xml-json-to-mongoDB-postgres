@@ -1,10 +1,11 @@
-package com.training.fileskafkadb.utilities;
+package com.training.fileskafkadb.utilities.filehandling;
 
-import com.training.fileskafkadb.dta.Employee;
+import com.training.fileskafkadb.entity.Employee;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Service
 public class JSONFileHandler implements MyFileHandler {
     private static int index = 0;
     private FileWriter fileWriter;
@@ -55,7 +57,7 @@ public class JSONFileHandler implements MyFileHandler {
     public Employee readEmployee() {
         JSONParser jsonParser = new JSONParser();
 
-        try (FileReader fileReader = new FileReader("/Users/jainilpatel/Desktop/Java Code Snippets/employee.json");){
+        try (FileReader fileReader = new FileReader("/Users/jainilpatel/Desktop/Java Code Snippets/employee.json")){
             Object obj = jsonParser.parse(fileReader);
 
             JSONArray employeeList = (JSONArray) obj;
@@ -75,7 +77,7 @@ public class JSONFileHandler implements MyFileHandler {
         return null;
     }
 
-    @Override
+   /* @Override
     public void writeEmployee(Employee employee) {
         JSONObject jsonObject = new JSONObject();
 
@@ -98,7 +100,7 @@ public class JSONFileHandler implements MyFileHandler {
         catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     @Override
     protected void finalize() throws Throwable {

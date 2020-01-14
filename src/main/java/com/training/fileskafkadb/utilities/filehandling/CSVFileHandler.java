@@ -1,26 +1,24 @@
-package com.training.fileskafkadb.utilities;
+package com.training.fileskafkadb.utilities.filehandling;
 
 import au.com.bytecode.opencsv.CSVReader;
-import au.com.bytecode.opencsv.CSVWriter;
-import com.training.fileskafkadb.dta.Employee;
+import com.training.fileskafkadb.entity.Employee;
+import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-
-
-public class CSVFileHandler implements MyFileHandler{
-    String fileRead = "/Users/parastripathi/Downloads/employee.csv";
-    String fileWrite = "/Users/parastripathi/Downloads/new_employee.csv";
+@Service
+public class CSVFileHandler implements MyFileHandler {
+    String fileRead = "/Users/jainilpatel/Desktop/Java Code Snippets/employee.csv";
+    String fileWrite = "/Users/jainilpatel/Desktop/Java Code Snippets/employeeNew.csv";
     FileReader filereader = new FileReader(fileRead);
     CSVReader csvReader = new CSVReader(filereader);
     File file = new File(fileWrite);
     public CSVFileHandler() throws IOException {
     }
 
-    @Override
+    /*@Override
     public void writeEmployee(Employee tempEmployee) throws IOException {
         if(tempEmployee == null) return;
         FileWriter outputfile = new FileWriter(file,true);
@@ -34,7 +32,7 @@ public class CSVFileHandler implements MyFileHandler{
         writeString[3] = Double.toString(tempEmployee.getExperience());
         writer.writeNext(writeString);
         writer.close();
-    }
+    }*/
     @Override
     public Employee readEmployee() throws IOException, ParseException {
         Object[] nextRecord;
